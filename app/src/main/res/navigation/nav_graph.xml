@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mypetFragment">
+
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.me_fragment.MeFragment"
+        android:label="Tôi"
+        tools:layout="@layout/fragment_me" />
+    <fragment
+        android:id="@+id/mypetFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.mypet_fragment.MypetFragment"
+        android:label="Thú cưng"
+        tools:layout="@layout/fragment_mypet">
+        <action
+            android:id="@+id/toAddPetFragment"
+            app:destination="@id/addPetFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchingFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.searching_fragment.SearchingFragment"
+        android:label="Tìm kiếm"
+        tools:layout="@layout/fragment_searching" />
+    <fragment
+        android:id="@+id/addPetFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.mypet_fragment.AddPetFragment"
+        android:label="Thêm thú cưng"
+        tools:layout="@layout/fragment_add_pet">
+        <action
+            android:id="@+id/toAddPetDetailFragment"
+            app:destination="@id/addPetDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPetDetailFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.mypet_fragment.AddPetDetailFragment"
+        android:label="Thêm thú cưng"
+        tools:layout="@layout/fragment_add_pet_detail" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.capstone1.lehieu.petcare.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.newsfeed_fragment.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" >
+        <action
+            android:id="@+id/toPostDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.newsfeed_fragment.PostDetailFragment"
+        android:label="fragment_post_detail"
+        tools:layout="@layout/fragment_post_detail">
+        <argument android:name="Name"
+            android:defaultValue=" "/>
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/listPostFragment"
+        android:name="com.capstone1.lehieu.petcare.fragment.newsfeed_fragment.ListPostFragment"
+        android:label="News Feed"
+        tools:layout="@layout/fragment_list_post">
+        <action
+            android:id="@+id/ToPostFragment"
+            app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/ListPostToPostDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+</navigation>
